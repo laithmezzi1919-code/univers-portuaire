@@ -1,0 +1,283 @@
+ /* ==========================================================================
+   1. VARIABLES & THEME SETUP
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Color Palette (Ocean & Maritime Theme) */
+  --clr-primary: #0f172a;       /* Deep Slate / Navy */
+  --clr-primary-light: #1e293b; 
+  --clr-accent: #0284c7;        /* Ocean Blue */
+  --clr-accent-hover: #0369a1;  
+  --clr-teal: #0d9488;          /* Maritime Teal */
+  --clr-bg: #f8fafc;            /* Cool Ice Background */
+  --clr-surface: #ffffff;       /* Pure White Cards */
+  --clr-text: #334155;          /* Body Text Slate */
+  --clr-text-muted: #64748b;    /* Secondary Text */
+  --clr-border: #e2e8f0;
+
+  /* Typography */
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 20px 40px -10px rgba(2, 132, 199, 0.15);
+
+  /* Spacing & Radii */
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-full: 9999px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   2. GLOBAL RESETS
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--clr-bg);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(2, 132, 199, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(13, 148, 136, 0.05) 0px, transparent 50%);
+  color: var(--clr-text);
+  line-height: 1.7;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ==========================================================================
+   3. HEADER / HERO
+   ========================================================================== */
+header {
+  width: 100%;
+  max-width: 860px;
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+}
+
+h1.title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  text-transform: capitalize;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   4. CARD SECTIONS
+   ========================================================================== */
+section {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+section:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(2, 132, 199, 0.2);
+}
+
+h2 {
+  color: var(--clr-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h2::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 1.25em;
+  background: var(--clr-accent);
+  border-radius: var(--radius-full);
+}
+
+p {
+  color: var(--clr-text);
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   5. CONTACT INFO & LIST STYLING
+   ========================================================================== */
+.contact-info strong {
+  color: var(--clr-primary);
+  font-weight: 600;
+}
+
+.contact-list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.contact-list li {
+  background: var(--clr-bg);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.contact-list li:hover {
+  background: #ffffff;
+  border-color: var(--clr-accent);
+  transform: translateX(4px);
+}
+
+.contact-list a {
+  color: var(--clr-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.contact-list a:hover {
+  color: var(--clr-accent-hover);
+  text-decoration: underline;
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: var(--clr-primary);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1rem;
+  font: inherit;
+  color: var(--clr-text);
+  background: var(--clr-bg);
+  transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+}
+
+.contact-form button {
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 0.9rem 1.3rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, var(--clr-accent) 0%, var(--clr-teal) 100%);
+  cursor: pointer;
+  transition: var(--transition);
+  width: fit-content;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ==========================================================================
+   6. MEDIA / IMAGE SECTION
+   ========================================================================== */
+.media {
+  padding: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.media img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 8px);
+  transition: var(--transition);
+}
+
+.media img:hover {
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+footer {
+  width: 100%;
+  max-width: 860px;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--clr-border);
+}
+
+footer p {
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 640px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  .contact-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+} 
